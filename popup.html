@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UberEats Optimizer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <h1>UberEats Order Optimizer</h1>
+      <button id="settings-btn" class="settings-btn" title="Settings">⚙️</button>
+    </header>
+
+    <main class="popup-content">
+      <div id="status-section" class="status-section">
+        <p id="status-text">Waiting for menu data...</p>
+        <div id="loading-spinner" class="spinner"></div>
+      </div>
+
+      <div id="menu-section" class="menu-section" style="display: none;">
+        <div class="menu-info">
+          <p id="menu-name"></p>
+          <p id="menu-items-count"></p>
+        </div>
+
+        <div id="preferences-panel" class="preferences-panel">
+          <h3>Preferences</h3>
+          
+          <div class="form-group">
+            <label for="max-budget">Max Budget ($)</label>
+            <input type="number" id="max-budget" min="5" max="500" value="50" step="5">
+          </div>
+
+          <div class="form-group">
+            <label for="min-items">Min Items</label>
+            <input type="number" id="min-items" min="1" max="20" value="1">
+          </div>
+
+          <div class="form-group">
+            <label for="max-items">Max Items</label>
+            <input type="number" id="max-items" min="1" max="20" value="10">
+          </div>
+
+          <div class="form-group checkbox">
+            <input type="checkbox" id="prioritize-deals" checked>
+            <label for="prioritize-deals">Prioritize Deals</label>
+          </div>
+
+          <button id="optimize-btn" class="btn btn-primary">Optimize Order</button>
+        </div>
+
+        <div id="recommendations-panel" class="recommendations-panel" style="display: none;">
+          <h3>Recommendations</h3>
+          <div id="recommendations-list"></div>
+          
+          <div class="summary-section">
+            <p id="summary-text"></p>
+            <div class="action-buttons">
+              <button id="copy-btn" class="btn btn-secondary">Copy Items</button>
+              <button id="highlight-btn" class="btn btn-secondary">Highlight on Page</button>
+              <button id="new-optimization-btn" class="btn btn-secondary">New Analysis</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="settings-section" class="settings-section" style="display: none;">
+        <h3>Settings</h3>
+        
+        <div class="form-group">
+          <label for="theme-toggle">Dark Mode</label>
+          <input type="checkbox" id="theme-toggle">
+        </div>
+
+        <div class="form-group">
+          <label for="auto-optimize">Auto-Optimize on Page Load</label>
+          <input type="checkbox" id="auto-optimize" checked>
+        </div>
+
+        <div class="form-group">
+          <label for="notification-toggle">Enable Notifications</label>
+          <input type="checkbox" id="notification-toggle" checked>
+        </div>
+
+        <button id="clear-data-btn" class="btn btn-danger">Clear All Data</button>
+        <button id="back-btn" class="btn btn-secondary">Back</button>
+      </div>
+
+      <div id="error-section" class="error-section" style="display: none;">
+        <p id="error-text"></p>
+        <button id="retry-btn" class="btn btn-primary">Retry</button>
+      </div>
+    </main>
+
+    <footer class="popup-footer">
+      <small>v1.0.0 • Save money on UberEats</small>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

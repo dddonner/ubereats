@@ -1,0 +1,521 @@
+/**
+ * styles.css
+ * Styling for popup UI
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  width: 480px;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
+  background: #1e1e1e;
+  color: #ffffff;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 600px;
+}
+
+/* Header */
+.popup-header {
+  background: linear-gradient(135deg, #00d084 0%, #009070 100%);
+  color: white;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popup-header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.settings-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.settings-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Content */
+.popup-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+body.dark-mode .popup-content {
+  background: #1e1e1e;
+}
+
+/* Status Section */
+.status-section {
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #e0e0e0;
+  border-radius: 50%;
+  border-top: 3px solid #00d084;
+  animation: spin 1s linear infinite;
+  margin-top: 12px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Menu Section */
+.menu-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menu-info {
+  background: #f7f7f7;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+body.dark-mode .menu-info {
+  background: #2a2a2a;
+}
+
+.menu-info p {
+  margin: 4px 0;
+}
+
+/* Preferences Panel */
+.preferences-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+body.dark-mode .preferences-panel {
+  background: #252525;
+}
+
+.preferences-panel h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #00d084;
+}
+
+/* Form Groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+}
+
+body.dark-mode .form-group label {
+  color: #aaa;
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px;
+  background: white;
+  color: #1a1a1a;
+}
+
+body.dark-mode .form-group input[type="number"],
+body.dark-mode .form-group input[type="text"] {
+  background: #333;
+  color: #fff;
+  border-color: #444;
+}
+
+.form-group input[type="number"]:focus,
+.form-group input[type="text"]:focus {
+  outline: none;
+  border-color: #00d084;
+  box-shadow: 0 0 0 2px rgba(0, 208, 132, 0.1);
+}
+
+.form-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #00d084;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #00d084;
+  color: white;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background: #009070;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 208, 132, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 208, 132, 0.3);
+}
+
+.btn-secondary {
+  background: #e0e0e0;
+  color: #1a1a1a;
+  flex: 1;
+}
+
+body.dark-mode .btn-secondary {
+  background: #333;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #d0d0d0;
+}
+
+body.dark-mode .btn-secondary:hover {
+  background: #444;
+}
+
+.btn-danger {
+  background: #ff4757;
+  color: white;
+  width: 100%;
+}
+
+.btn-danger:hover {
+  background: #ff3838;
+}
+
+/* Recommendations Panel */
+.recommendations-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recommendations-panel h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #00d084;
+}
+
+#recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.recommendation-item {
+  background: #f7f7f7;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 3px solid #00d084;
+  font-size: 12px;
+}
+
+body.dark-mode .recommendation-item {
+  background: #2a2a2a;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.item-header strong {
+  font-weight: 600;
+  color: #1a1a1a;
+  flex: 1;
+}
+
+body.dark-mode .item-header strong {
+  color: #fff;
+}
+
+.discount-badge {
+  background: #fff3cd;
+  color: #856404;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.item-details {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 11px;
+}
+
+.price-original {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.price-effective {
+  color: #00d084;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.savings {
+  background: #d4edda;
+  color: #155724;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+body.dark-mode .savings {
+  background: #1e4620;
+  color: #7fe87f;
+}
+
+.item-reason {
+  color: #666;
+  display: block;
+  margin-top: 6px;
+}
+
+body.dark-mode .item-reason {
+  color: #aaa;
+}
+
+.no-results {
+  text-align: center;
+  color: #999;
+  padding: 16px 0;
+  font-size: 13px;
+}
+
+/* Summary Section */
+.summary-section {
+  background: #f0f9f6;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #d4edda;
+}
+
+body.dark-mode .summary-section {
+  background: #1e3a2e;
+  border-color: #2a5a4a;
+}
+
+#summary-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+#summary-text strong {
+  color: #00d084;
+  font-size: 14px;
+}
+
+.savings-summary {
+  color: #009070;
+  font-weight: 600;
+}
+
+.items-count {
+  color: #666;
+  font-size: 11px;
+}
+
+body.dark-mode .items-count {
+  color: #aaa;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Settings Section */
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.settings-section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #00d084;
+}
+
+/* Error Section */
+.error-section {
+  background: #fff5f5;
+  border: 1px solid #feb2b2;
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+}
+
+body.dark-mode .error-section {
+  background: #3a1f1f;
+  border-color: #6b2e2e;
+}
+
+#error-text {
+  color: #c53030;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+body.dark-mode #error-text {
+  color: #ff7a7a;
+}
+
+/* Footer */
+.popup-footer {
+  background: #f9f9f9;
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 11px;
+  color: #999;
+  border-top: 1px solid #eee;
+}
+
+body.dark-mode .popup-footer {
+  background: #1a1a1a;
+  border-top-color: #333;
+  color: #666;
+}
+
+/* Notification */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00d084;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.notification.show {
+  opacity: 1;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00d084;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #009070;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  body {
+    width: 100vw;
+  }
+
+  .popup-header h1 {
+    font-size: 16px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .action-buttons .btn {
+    width: 100%;
+  }
+}
